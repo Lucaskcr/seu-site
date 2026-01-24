@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FricSites — Criação de Sites Profissionais</title>
+  <title>FricSites — Sites por Assinatura</title>
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, Helvetica, sans-serif; }
@@ -36,15 +36,16 @@
     }
 
     .hero h2 {
-      font-size:2.2rem;
+      font-size:2.3rem;
       margin-bottom:20px;
     }
 
     .hero p {
-      max-width:700px;
+      max-width:760px;
       margin:0 auto 40px;
       color:#bbb;
       line-height:1.6;
+      font-size:1.05rem;
     }
 
     .btn {
@@ -58,41 +59,91 @@
       display:inline-block;
     }
 
-    .btn:hover { transform:scale(1.05); }
+    .btn:hover { transform:scale(1.06); }
+
+    section.como-funciona {
+      background:#101010;
+      padding:60px 20px;
+      text-align:center;
+    }
+
+    .como-funciona h2 {
+      margin-bottom:30px;
+    }
+
+    .passos {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:30px;
+      max-width:1000px;
+      margin:0 auto;
+    }
+
+    .passo {
+      background:#151515;
+      padding:25px;
+      border-radius:18px;
+      border:1px solid #222;
+    }
+
+    .passo h3 {
+      color:#00ff88;
+      margin-bottom:10px;
+    }
 
     section.planos {
-      padding:60px 20px;
+      padding:70px 20px;
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-      gap:30px;
-      max-width:1100px;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:35px;
+      max-width:1150px;
       margin:0 auto;
     }
 
     .card {
       background:#151515;
-      padding:30px;
-      border-radius:20px;
+      padding:35px;
+      border-radius:22px;
       border:1px solid #222;
       transition:0.3s;
+      position:relative;
     }
 
-    .card:hover { transform:translateY(-8px); }
+    .card:hover { transform:translateY(-10px); }
+
+    .tag {
+      position:absolute;
+      top:18px;
+      right:18px;
+      background:#00ff88;
+      color:#000;
+      padding:6px 14px;
+      border-radius:20px;
+      font-size:0.75rem;
+      font-weight:bold;
+    }
 
     .card h3 {
       color:#00ff88;
       margin-bottom:10px;
+      font-size:1.4rem;
     }
 
     .price {
-      font-size:1.8rem;
-      margin:15px 0;
+      font-size:2rem;
+      margin:18px 0;
+    }
+
+    .price span {
+      font-size:0.9rem;
+      color:#aaa;
     }
 
     .card ul {
       list-style:none;
-      margin-bottom:20px;
+      margin-bottom:25px;
       color:#ccc;
+      line-height:1.6;
     }
 
     .card ul li { margin-bottom:8px; }
@@ -104,17 +155,17 @@
     }
 
     section.aviso {
-      padding:40px 20px;
+      padding:50px 20px;
       text-align:center;
-      background:#101010;
-      margin-top:40px;
+      background:#0f0f0f;
     }
 
     section.aviso p {
-      max-width:700px;
+      max-width:820px;
       margin:0 auto;
       color:#aaa;
-      line-height:1.6;
+      line-height:1.7;
+      font-size:0.95rem;
     }
 
     footer {
@@ -130,60 +181,88 @@
 
 <header>
   <h1>FricSites</h1>
-  <p>Criação de sites modernos, rápidos e profissionais</p>
+  <p>Sites profissionais por assinatura mensal</p>
 </header>
 
 <section class="hero">
-  <h2>Seu site pronto para vender</h2>
+  <h2>Seu site sempre atualizado, sem dor de cabeça</h2>
   <p>
-    Criamos sites elegantes, responsivos e confiáveis para quem quer
-    presença profissional na internet. Ideal para negócios, marcas pessoais
-    e projetos online.
+    Aqui você não compra apenas um site. Você assina um serviço contínuo.
+    Criamos seu site do jeito que você quiser e, todo mês, você pode solicitar
+    alterações, melhorias ou novos conteúdos conforme o plano escolhido.
   </p>
-  <a class="btn" href="https://wa.me/5545988080346">Falar no WhatsApp</a>
+  <a class="btn" href="https://wa.me/5545988080346">Quero meu site</a>
+</section>
+
+<section class="como-funciona">
+  <h2>Como funciona</h2>
+  <div class="passos">
+    <div class="passo">
+      <h3>1️⃣ Você escolhe o plano</h3>
+      <p>Selecione a quantidade de alterações mensais que melhor se encaixa no seu negócio.</p>
+    </div>
+    <div class="passo">
+      <h3>2️⃣ Criamos seu site</h3>
+      <p>Desenvolvemos o site exatamente como você descreveu, com visual profissional.</p>
+    </div>
+    <div class="passo">
+      <h3>3️⃣ Atualizações mensais</h3>
+      <p>Todo mês você pode pedir alterações conforme o limite do seu plano.</p>
+    </div>
+    <div class="passo">
+      <h3>4️⃣ Evolução contínua</h3>
+      <p>Seu site cresce junto com seu negócio, sem precisar refazer tudo.</p>
+    </div>
+  </div>
 </section>
 
 <section class="planos">
 
   <div class="card">
-    <h3>Landing Page</h3>
-    <p class="price">R$ 199</p>
+    <h3>Plano Básico</h3>
+    <p class="price">R$ 79 <span>/ mês</span></p>
     <ul>
-      <li>✔ Página única</li>
+      <li>✔ Site completo (institucional)</li>
       <li>✔ Design moderno</li>
-      <li>✔ Botão WhatsApp</li>
+      <li>✔ 1 dia de alteração por mês</li>
+      <li>✔ Alterações acumuladas não transferem</li>
+      <li>✔ Suporte via WhatsApp</li>
     </ul>
-    <a class="btn disabled">Pagamento em breve</a>
+    <a class="btn disabled">Assinatura em breve</a>
   </div>
 
   <div class="card">
-    <h3>Site Profissional</h3>
-    <p class="price">R$ 299</p>
+    <span class="tag">Mais vendido</span>
+    <h3>Plano Standard</h3>
+    <p class="price">R$ 129 <span>/ mês</span></p>
     <ul>
-      <li>✔ Até 5 páginas</li>
-      <li>✔ Visual premium</li>
-      <li>✔ Responsivo</li>
+      <li>✔ Site completo personalizado</li>
+      <li>✔ 2 dias de alteração por mês</li>
+      <li>✔ Melhorias de layout</li>
+      <li>✔ Prioridade no atendimento</li>
     </ul>
-    <a class="btn disabled">Pagamento em breve</a>
+    <a class="btn disabled">Assinatura em breve</a>
   </div>
 
   <div class="card">
-    <h3>Site Premium</h3>
-    <p class="price">R$ 599</p>
+    <h3>Plano Pro</h3>
+    <p class="price">R$ 199 <span>/ mês</span></p>
     <ul>
-      <li>✔ Design exclusivo</li>
-      <li>✔ Área do cliente</li>
+      <li>✔ Site premium</li>
+      <li>✔ 4 dias de alteração por mês (1 por semana)</li>
+      <li>✔ Evolução contínua</li>
       <li>✔ Suporte prioritário</li>
     </ul>
-    <a class="btn disabled">Pagamento em breve</a>
+    <a class="btn disabled">Assinatura em breve</a>
   </div>
 
 </section>
 
 <section class="aviso">
   <p>
-    ⚠️ Pagamentos via Pix estarão disponíveis assim que a conta do Mercado Pago
-    for confirmada. Enquanto isso, o atendimento é feito diretamente pelo WhatsApp.
+    ⚠️ Os planos funcionam por assinatura mensal. As alterações são feitas dentro
+    dos dias disponíveis em cada plano, mediante solicitação do cliente.
+    Pagamentos via Pix automático estarão disponíveis após a liberação da conta Mercado Pago.
   </p>
 </section>
 
