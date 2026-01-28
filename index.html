@@ -3,164 +3,202 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FricSites — Sites por Assinatura</title>
+  <title>Lucas — Desenvolvedor & Criador Digital</title>
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, Helvetica, sans-serif; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; }
 
     body {
-      background: linear-gradient(135deg, #0b0b0b, #111);
+      background: radial-gradient(circle at top, #111, #000);
       color:#fff;
-      min-height:100vh;
+      overflow-x:hidden;
     }
 
     header {
-      padding:30px;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       text-align:center;
-      border-bottom:1px solid #222;
+      padding:40px 20px;
     }
 
-    header h1 { font-size:2.4rem; color:#00ff88; }
-    header p { margin-top:10px; color:#ccc; }
-
-    section.hero {
-      padding:80px 20px;
-      text-align:center;
+    .hero {
+      max-width:900px;
+      animation: fadeUp 1.2s ease;
     }
 
-    .hero h2 { font-size:2.3rem; margin-bottom:20px; }
+    h1 {
+      font-size:3.2rem;
+      margin-bottom:10px;
+    }
 
-    .hero p {
-      max-width:760px;
-      margin:0 auto 40px;
-      color:#bbb;
-      line-height:1.6;
+    h1 span { color:#00ff88; }
+
+    .subtitle {
+      font-size:1.3rem;
+      color:#aaa;
+      margin-bottom:30px;
+    }
+
+    .typing {
+      color:#00ff88;
+      font-weight:bold;
+      border-right:2px solid #00ff88;
+      padding-right:5px;
+      animation: blink 0.8s infinite;
     }
 
     .btn {
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 34px;
       background:#00ff88;
       color:#000;
-      padding:15px 32px;
-      border-radius:30px;
+      border-radius:40px;
       text-decoration:none;
       font-weight:bold;
       transition:0.3s;
-      display:inline-block;
     }
 
-    .btn:hover { transform:scale(1.06); }
+    .btn:hover { transform:scale(1.08); }
 
-    section.planos {
-      padding:70px 20px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:35px;
-      max-width:1150px;
+    section {
+      padding:100px 20px;
+      max-width:1100px;
       margin:0 auto;
     }
 
+    section h2 {
+      font-size:2.2rem;
+      margin-bottom:30px;
+      text-align:center;
+    }
+
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:30px;
+    }
+
     .card {
-      background:#151515;
-      padding:35px;
+      background:linear-gradient(145deg, #141414, #0c0c0c);
+      border:1px solid #1f1f1f;
       border-radius:22px;
-      border:1px solid #222;
-      transition:0.3s;
-      position:relative;
+      padding:30px;
+      text-align:center;
+      transition:0.4s;
     }
 
-    .card:hover { transform:translateY(-10px); }
-
-    .tag {
-      position:absolute;
-      top:18px;
-      right:18px;
-      background:#00ff88;
-      color:#000;
-      padding:6px 14px;
-      border-radius:20px;
-      font-size:0.75rem;
-      font-weight:bold;
+    .card:hover {
+      transform:translateY(-12px) scale(1.03);
+      box-shadow:0 0 30px rgba(0,255,136,0.15);
     }
 
-    .card h3 { color:#00ff88; margin-bottom:10px; font-size:1.4rem; }
-
-    .price { font-size:2rem; margin:18px 0; }
-    .price span { font-size:0.9rem; color:#aaa; }
-
-    .card ul {
-      list-style:none;
-      margin-bottom:25px;
-      color:#ccc;
-      line-height:1.6;
+    .card h3 {
+      color:#00ff88;
+      margin-bottom:12px;
     }
 
-    .card ul li { margin-bottom:8px; }
+    .card p { color:#bbb; line-height:1.6; }
 
     footer {
       text-align:center;
-      padding:30px;
-      border-top:1px solid #222;
-      margin-top:40px;
+      padding:40px 20px;
       color:#777;
+      border-top:1px solid #222;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>FricSites</h1>
-  <p>Sites profissionais por assinatura mensal</p>
+  <div class="hero">
+    <h1>Lucas <span>Developer</span></h1>
+    <p class="subtitle">18 anos • Criador digital • Soluções modernas</p>
+    <p class="subtitle">
+      Eu trabalho como <span class="typing" id="typing"></span>
+    </p>
+    <a class="btn" href="https://wa.me/5545988080346">Entrar em contato</a>
+  </div>
 </header>
 
-<section class="hero">
-  <h2>Contrate seu site agora</h2>
-  <p>
-    Escolha um plano abaixo e finalize o pagamento via Pix pelo Mercado Pago.
-    Após o pagamento, você será direcionado para o WhatsApp para iniciar seu projeto.
-  </p>
-</section>
-
-<section class="planos">
-
-  <div class="card">
-    <h3>Plano Básico</h3>
-    <p class="price">R$ 79 <span>/ mês</span></p>
-    <ul>
-      <li>✔ Site completo</li>
-      <li>✔ 1 dia de alteração por mês</li>
-      <li>✔ Suporte WhatsApp</li>
-    </ul>
-    <a class="btn" href="COLE_AQUI_O_LINK_MP_BASICO" target="_blank">Pagar com Pix</a>
+<section>
+  <h2>O que eu faço</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Desenvolvedor de Softwares</h3>
+      <p>Criação de sistemas, sites e soluções digitais modernas e funcionais.</p>
+    </div>
+    <div class="card">
+      <h3>Criação de Sites</h3>
+      <p>Sites profissionais, rápidos, responsivos e com design premium.</p>
+    </div>
+    <div class="card">
+      <h3>Design & Logos</h3>
+      <p>Criação de logos e identidade visual para marcas e negócios.</p>
+    </div>
+    <div class="card">
+      <h3>Marcas de Roupas</h3>
+      <p>Desenvolvimento de conceito, identidade e visual para marcas de moda.</p>
+    </div>
+    <div class="card">
+      <h3>Auxiliar de Marketing</h3>
+      <p>Estratégias digitais, posicionamento de marca e presença online.</p>
+    </div>
   </div>
-
-  <div class="card">
-    <span class="tag">Mais vendido</span>
-    <h3>Plano Standard</h3>
-    <p class="price">R$ 129 <span>/ mês</span></p>
-    <ul>
-      <li>✔ Site personalizado</li>
-      <li>✔ 2 dias de alteração por mês</li>
-      <li>✔ Prioridade no atendimento</li>
-    </ul>
-    <a class="btn" href="COLE_AQUI_O_LINK_MP_STANDARD" target="_blank">Pagar com Pix</a>
-  </div>
-
-  <div class="card">
-    <h3>Plano Pro</h3>
-    <p class="price">R$ 199 <span>/ mês</span></p>
-    <ul>
-      <li>✔ Site premium</li>
-      <li>✔ 4 dias de alteração por mês</li>
-      <li>✔ Suporte prioritário</li>
-    </ul>
-    <a class="btn" href="COLE_AQUI_O_LINK_MP_PRO" target="_blank">Pagar com Pix</a>
-  </div>
-
 </section>
 
 <footer>
-  © 2026 — FricSites • Todos os direitos reservados
+  © 2026 • Lucas — Desenvolvedor & Criador Digital
 </footer>
+
+<script>
+  const words = [
+    'desenvolvedor de softwares',
+    'criador de sites',
+    'designer de marcas',
+    'criador de logos',
+    'auxiliar de marketing'
+  ];
+
+  let i = 0;
+  let j = 0;
+  let currentWord = '';
+  let isDeleting = false;
+  const el = document.getElementById('typing');
+
+  function type() {
+    currentWord = words[i];
+
+    if (!isDeleting) {
+      el.textContent = currentWord.substring(0, j++);
+      if (j > currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 1200);
+        return;
+      }
+    } else {
+      el.textContent = currentWord.substring(0, j--);
+      if (j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+      }
+    }
+    setTimeout(type, isDeleting ? 60 : 90);
+  }
+
+  type();
+</script>
 
 </body>
 </html>
