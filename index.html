@@ -3,273 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucas — Desenvolvedor & Criador Digital</title>
-
+  <title>Lucas | Desenvolvedor & Criador Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Arial, sans-serif; }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: linear-gradient(180deg, #050505, #0d0d0d);
-      color:#fff;
-      overflow-x:hidden;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: #e5e7eb;
+      line-height: 1.6;
     }
-
-    /* HEADER */
     header {
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:40px 20px;
-      position:relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
     }
-
-    header::before {
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at top, rgba(0,255,136,0.12), transparent 60%);
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      background: linear-gradient(90deg, #38bdf8, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeDown 1s ease;
     }
-
-    .hero {
-      max-width:900px;
-      z-index:2;
+    header p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 1.2rem;
+      color: #cbd5f5;
       animation: fadeUp 1.2s ease;
     }
-
-    h1 { font-size:3.4rem; margin-bottom:10px; }
-    h1 span { color:#00ff88; }
-
-    .subtitle {
-      font-size:1.3rem;
-      color:#aaa;
-      margin-bottom:20px;
-    }
-
-    .typing {
-      color:#00ff88;
-      font-weight:bold;
-      border-right:2px solid #00ff88;
-      padding-right:6px;
-      animation: blink 0.8s infinite;
-    }
-
     .btn {
-      display:inline-block;
-      margin-top:35px;
-      padding:16px 38px;
-      background:#00ff88;
-      color:#000;
-      border-radius:40px;
-      text-decoration:none;
-      font-weight:bold;
-      transition:0.3s;
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 40px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      color: #020617;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .3s, box-shadow .3s;
+      box-shadow: 0 15px 40px rgba(56,189,248,.35);
     }
-
-    .btn:hover { transform:scale(1.1); }
-
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 60px rgba(99,102,241,.45);
+    }
     section {
-      padding:100px 20px;
-      max-width:1200px;
-      margin:0 auto;
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
-
-    section h2 {
-      font-size:2.4rem;
-      margin-bottom:20px;
-      text-align:center;
+    h2 {
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+      text-align: center;
     }
-
-    section p.desc {
-      max-width:900px;
-      margin:0 auto 60px;
-      text-align:center;
-      color:#bbb;
-      font-size:1.05rem;
-      line-height:1.7;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
-
-    /* SKILLS */
-    .skills {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-      gap:35px;
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 30px;
+      transition: transform .4s, box-shadow .4s;
+      backdrop-filter: blur(10px);
     }
-
-    .skill {
-      background:linear-gradient(145deg, #141414, #0b0b0b);
-      border:1px solid #1f1f1f;
-      border-radius:22px;
-      padding:35px;
-      transition:0.4s;
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(0,0,0,.5);
     }
-
-    .skill:hover {
-      transform:translateY(-12px);
-      box-shadow:0 0 35px rgba(0,255,136,0.18);
+    .card h3 {
+      margin-bottom: 10px;
+      color: #93c5fd;
     }
-
-    .skill h3 { color:#00ff88; margin-bottom:14px; font-size:1.4rem; }
-    .skill ul { list-style:none; color:#ccc; line-height:1.7; }
-    .skill ul li { margin-bottom:8px; }
-
-    /* PROCESS */
-    .process {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:30px;
-      margin-top:50px;
+    .cta {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #020617;
+      text-align: center;
+      padding: 80px 30px;
+      border-radius: 40px;
+      box-shadow: 0 40px 100px rgba(56,189,248,.5);
     }
-
-    .step {
-      background:#121212;
-      border-radius:18px;
-      padding:25px;
-      border:1px solid #222;
+    .cta h2 { color: #020617; }
+    .cta p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 20px auto;
     }
-
-    .step span { color:#00ff88; font-weight:bold; }
-
-    /* FOOTER */
     footer {
-      text-align:center;
-      padding:50px 20px;
-      color:#777;
-      border-top:1px solid #222;
+      text-align: center;
+      padding: 40px 20px;
+      color: #94a3b8;
+      font-size: .9rem;
     }
-
-    @keyframes fadeUp {
-      from { opacity:0; transform:translateY(40px); }
-      to { opacity:1; transform:translateY(0); }
-    }
-
-    @keyframes blink { 50% { border-color:transparent; } }
+    @keyframes fadeDown { from {opacity:0; transform: translateY(-40px);} to {opacity:1;} }
+    @keyframes fadeUp { from {opacity:0; transform: translateY(40px);} to {opacity:1;} }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="hero">
-    <h1>Lucas <span>Developer</span></h1>
-    <p class="subtitle">18 anos • Desenvolvedor • Criador Digital</p>
-    <p class="subtitle">Trabalho como <span class="typing" id="typing"></span></p>
-    <a class="btn" href="https://wa.me/5545988080346">Falar comigo</a>
+  <div>
+    <h1>Lucas</h1>
+    <p>Desenvolvedor de softwares, criador de sites e marcas digitais. Transformo ideias em experiências modernas, profissionais e que passam confiança.</p>
+    <a class="btn" href="https://wa.me/5545988080346">Falar comigo no WhatsApp</a>
   </div>
 </header>
 
 <section>
-  <h2>Sobre mim</h2>
-  <p class="desc">
-    Meu nome é Lucas, tenho 18 anos e atuo como desenvolvedor e criador digital.
-    Trabalho com tecnologia, design e marketing, ajudando pessoas e marcas a
-    criarem presença profissional no digital.
-  </p>
-</section>
-
-<section>
-  <h2>O que eu sei fazer</h2>
-  <p class="desc">Essas são as áreas que eu domino e trabalho no dia a dia.</p>
-
-  <div class="skills">
-    <div class="skill">
-      <h3>💻 Desenvolvimento de Softwares</h3>
-      <ul>
-        <li>• Lógica de programação</li>
-        <li>• Sistemas simples e automações</li>
-        <li>• Soluções personalizadas</li>
-      </ul>
-    </div>
-
-    <div class="skill">
-      <h3>🌐 Criação de Sites</h3>
-      <ul>
-        <li>• Sites institucionais</li>
-        <li>• Landing pages</li>
-        <li>• Sites responsivos</li>
-        <li>• Design moderno</li>
-      </ul>
-    </div>
-
-    <div class="skill">
-      <h3>🎨 Design & Logos</h3>
-      <ul>
-        <li>• Criação de logos</li>
-        <li>• Identidade visual</li>
-        <li>• Branding</li>
-      </ul>
-    </div>
-
-    <div class="skill">
-      <h3>👕 Marcas de Roupas</h3>
-      <ul>
-        <li>• Conceito de marca</li>
-        <li>• Visual da marca</li>
-        <li>• Identidade para moda</li>
-      </ul>
-    </div>
-
-    <div class="skill">
-      <h3>📈 Marketing Digital</h3>
-      <ul>
-        <li>• Posicionamento de marca</li>
-        <li>• Estratégia digital</li>
-        <li>• Auxílio em divulgação</li>
-      </ul>
-    </div>
+  <h2>O que eu faço</h2>
+  <div class="grid">
+    <div class="card"><h3>Desenvolvimento de Sites</h3><p>Sites modernos, rápidos, responsivos e com foco total em presença digital e conversão.</p></div>
+    <div class="card"><h3>Desenvolvimento de Softwares</h3><p>Soluções sob medida, automações e sistemas pensados para facilitar processos.</p></div>
+    <div class="card"><h3>Criação de Logos</h3><p>Identidade visual forte, moderna e alinhada com o propósito da marca.</p></div>
+    <div class="card"><h3>Marcas de Roupas</h3><p>Criação de conceito, identidade e presença digital para marcas de moda.</p></div>
+    <div class="card"><h3>Marketing Digital</h3><p>Apoio estratégico para posicionamento, autoridade e crescimento online.</p></div>
+    <div class="card"><h3>Design & Criatividade</h3><p>Visual premium, minimalista e profissional, focado em impacto.</p></div>
   </div>
 </section>
 
-<section>
-  <h2>Como eu trabalho</h2>
-  <p class="desc">Processo simples, organizado e transparente.</p>
-
-  <div class="process">
-    <div class="step"><span>1.</span> Entendo o que você precisa</div>
-    <div class="step"><span>2.</span> Planejo a melhor solução</div>
-    <div class="step"><span>3.</span> Crio o projeto</div>
-    <div class="step"><span>4.</span> Ajusto até ficar ideal</div>
-  </div>
+<section class="cta">
+  <h2>Quer tirar sua ideia do papel?</h2>
+  <p>Se você precisa de um site, marca ou solução digital profissional, me chama e vamos criar algo de alto nível juntos.</p>
+  <a class="btn" href="https://wa.me/5545988080346">Entrar em contato agora</a>
 </section>
 
 <footer>
-  © 2026 • Lucas — Desenvolvedor & Criador Digital
+  © 2026 • Lucas • Desenvolvedor & Criador Digital
 </footer>
-
-<script>
-  const words = [
-    'desenvolvedor de softwares',
-    'criador de sites',
-    'designer de marcas',
-    'criador de logos',
-    'auxiliar de marketing'
-  ];
-
-  let i = 0, j = 0, isDeleting = false;
-  const el = document.getElementById('typing');
-
-  function type() {
-    const word = words[i];
-
-    if (!isDeleting) {
-      el.textContent = word.substring(0, j++);
-      if (j > word.length) {
-        isDeleting = true;
-        setTimeout(type, 1200);
-        return;
-      }
-    } else {
-      el.textContent = word.substring(0, j--);
-      if (j === 0) {
-        isDeleting = false;
-        i = (i + 1) % words.length;
-      }
-    }
-    setTimeout(type, isDeleting ? 60 : 90);
-  }
-
-  type();
-</script>
 
 </body>
 </html>
