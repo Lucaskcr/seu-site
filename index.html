@@ -21,7 +21,15 @@
       overflow-x: hidden;
     }
 
-    /* HERO / BANNER */
+    /* PARTICLES CANVAS */
+    canvas#particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* HERO */
     header.hero {
       position: relative;
       min-height: 100vh;
@@ -33,6 +41,7 @@
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
+      overflow: hidden;
     }
 
     header.hero::after {
@@ -44,6 +53,7 @@
         rgba(99,102,241,0.35),
         transparent 60%
       );
+      z-index: 1;
     }
 
     .hero-content {
@@ -86,11 +96,12 @@
       box-shadow: 0 30px 70px rgba(99,102,241,.55);
     }
 
-    /* SECTIONS */
     section {
       padding: 100px 20px;
       max-width: 1200px;
       margin: auto;
+      position: relative;
+      z-index: 2;
     }
 
     section h2 {
@@ -108,7 +119,6 @@
       line-height: 1.7;
     }
 
-    /* CARDS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -121,11 +131,19 @@
       border-radius: 26px;
       padding: 32px;
       backdrop-filter: blur(12px);
-      transition: transform .4s, box-shadow .4s;
+
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-12px) scale(1.02);
       box-shadow: 0 35px 80px rgba(0,0,0,.6);
     }
 
@@ -140,7 +158,6 @@
       line-height: 1.6;
     }
 
-    /* CTA */
     .cta {
       background: linear-gradient(135deg, #38bdf8, #6366f1);
       color: #020617;
@@ -148,12 +165,11 @@
       padding: 90px 30px;
       border-radius: 45px;
       box-shadow: 0 45px 110px rgba(56,189,248,.55);
+      position: relative;
+      z-index: 2;
     }
 
-    .cta h2 {
-      color: #020617;
-      margin-bottom: 15px;
-    }
+    .cta h2 { color: #020617; margin-bottom: 15px; }
 
     .cta p {
       font-size: 1.2rem;
@@ -161,13 +177,14 @@
       margin: 0 auto 35px;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 45px 20px;
       color: #94a3b8;
       font-size: .9rem;
       border-top: 1px solid #1e293b;
+      position: relative;
+      z-index: 2;
     }
 
     @keyframes fadeUp {
@@ -178,81 +195,91 @@
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Lucas</h1>
-      <p>
-        Desenvolvedor de softwares, criador de sites e marcas digitais.<br>
-        Trabalho com tecnologia, design e marketing para transformar ideias
-        em experiências modernas, profissionais e confiáveis.
-      </p>
-      <a class="btn" href="https://wa.me/5545988080346">Entrar em contato</a>
-    </div>
-  </header>
+<canvas id="particles"></canvas>
 
-  <!-- SOBRE -->
-  <section>
-    <h2>Sobre mim</h2>
-    <p class="desc">
-      Tenho 18 anos e atuo como criador digital. Desenvolvo sites, softwares,
-      identidades visuais e auxilio marcas a se posicionarem no digital com
-      autoridade e profissionalismo.
-    </p>
-  </section>
-
-  <!-- SERVIÇOS -->
-  <section>
-    <h2>O que eu sei fazer</h2>
-    <p class="desc">Áreas que domino e aplico em projetos reais.</p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>💻 Desenvolvimento de Softwares</h3>
-        <p>Sistemas, automações e soluções personalizadas.</p>
-      </div>
-
-      <div class="card">
-        <h3>🌐 Criação de Sites</h3>
-        <p>Sites modernos, responsivos e com visual premium.</p>
-      </div>
-
-      <div class="card">
-        <h3>🎨 Criação de Logos</h3>
-        <p>Identidade visual profissional e memorável.</p>
-      </div>
-
-      <div class="card">
-        <h3>👕 Marcas de Roupas</h3>
-        <p>Conceito, identidade e presença digital para moda.</p>
-      </div>
-
-      <div class="card">
-        <h3>📈 Marketing Digital</h3>
-        <p>Posicionamento, estratégia e crescimento online.</p>
-      </div>
-
-      <div class="card">
-        <h3>✨ Design Criativo</h3>
-        <p>Visual limpo, moderno e focado em impacto.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <h2>Vamos criar algo profissional?</h2>
+<header class="hero">
+  <div class="hero-content">
+    <h1>Lucas</h1>
     <p>
-      Se você precisa de um site, marca ou solução digital de alto nível,
-      me chama e vamos tirar sua ideia do papel.
+      Desenvolvedor de softwares, criador de sites e marcas digitais.<br>
+      Transformo ideias em experiências modernas e profissionais.
     </p>
-    <a class="btn" href="https://wa.me/5545988080346">Falar comigo agora</a>
-  </section>
+    <a class="btn" href="https://wa.me/5545988080346">Entrar em contato</a>
+  </div>
+</header>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 • Lucas — Desenvolvedor & Criador Digital
-  </footer>
+<section>
+  <h2>O que eu sei fazer</h2>
+  <p class="desc">Áreas que domino e aplico em projetos reais.</p>
+
+  <div class="grid">
+    <div class="card"><h3>💻 Desenvolvimento de Softwares</h3><p>Sistemas e automações personalizadas.</p></div>
+    <div class="card"><h3>🌐 Criação de Sites</h3><p>Sites modernos, rápidos e responsivos.</p></div>
+    <div class="card"><h3>🎨 Criação de Logos</h3><p>Identidade visual profissional.</p></div>
+    <div class="card"><h3>👕 Marcas de Roupas</h3><p>Conceito e identidade para moda.</p></div>
+    <div class="card"><h3>📈 Marketing Digital</h3><p>Posicionamento e estratégia online.</p></div>
+    <div class="card"><h3>✨ Design Criativo</h3><p>Visual premium e moderno.</p></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Vamos criar algo profissional?</h2>
+  <p>Me chama no WhatsApp e vamos tirar sua ideia do papel.</p>
+  <a class="btn" href="https://wa.me/5545988080346">Falar comigo agora</a>
+</section>
+
+<footer>
+  © 2026 • Lucas — Desenvolvedor & Criador Digital
+</footer>
+
+<script>
+  /* CARD ANIMATION */
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => observer.observe(card));
+
+  /* PARTICLES */
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+
+  let w, h;
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const particles = Array.from({ length: 80 }, () => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 1.5 + 0.5,
+    dx: (Math.random() - 0.5) * 0.3,
+    dy: (Math.random() - 0.5) * 0.3
+  }));
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => {
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.x < 0 || p.x > w) p.dx *= -1;
+      if (p.y < 0 || p.y > h) p.dy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(99,102,241,0.5)';
+      ctx.fill();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
 
 </body>
 </html>
