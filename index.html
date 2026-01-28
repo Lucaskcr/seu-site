@@ -4,140 +4,255 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucas | Desenvolvedor & Criador Digital</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #020617);
-      color: #e5e7eb;
-      line-height: 1.6;
     }
-    header {
+
+    body {
+      background: #020617;
+      color: #e5e7eb;
+      overflow-x: hidden;
+    }
+
+    /* HERO / BANNER */
+    header.hero {
+      position: relative;
       min-height: 100vh;
+      background:
+        linear-gradient(rgba(2,6,23,0.85), rgba(2,6,23,0.95)),
+        url("banner.png") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
     }
-    header h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+
+    header.hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top,
+        rgba(99,102,241,0.35),
+        transparent 60%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
       font-weight: 900;
       background: linear-gradient(90deg, #38bdf8, #a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: fadeDown 1s ease;
+      margin-bottom: 20px;
     }
-    header p {
-      max-width: 700px;
-      margin: 20px auto;
+
+    .hero-content p {
       font-size: 1.2rem;
       color: #cbd5f5;
-      animation: fadeUp 1.2s ease;
+      margin-bottom: 35px;
+      line-height: 1.7;
     }
+
     .btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 40px;
+      padding: 16px 42px;
       border-radius: 999px;
       background: linear-gradient(90deg, #38bdf8, #6366f1);
       color: #020617;
       font-weight: 700;
       text-decoration: none;
       transition: transform .3s, box-shadow .3s;
-      box-shadow: 0 15px 40px rgba(56,189,248,.35);
+      box-shadow: 0 20px 50px rgba(56,189,248,.45);
     }
+
     .btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 25px 60px rgba(99,102,241,.45);
+      box-shadow: 0 30px 70px rgba(99,102,241,.55);
     }
+
+    /* SECTIONS */
     section {
       padding: 100px 20px;
       max-width: 1200px;
       margin: auto;
     }
-    h2 {
+
+    section h2 {
       font-size: 2.6rem;
-      margin-bottom: 30px;
       text-align: center;
+      margin-bottom: 25px;
     }
+
+    section .desc {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 60px;
+      color: #b6c1ff;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* CARDS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 30px;
     }
+
     .card {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      padding: 30px;
+      border-radius: 26px;
+      padding: 32px;
+      backdrop-filter: blur(12px);
       transition: transform .4s, box-shadow .4s;
-      backdrop-filter: blur(10px);
     }
+
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 70px rgba(0,0,0,.5);
+      transform: translateY(-10px);
+      box-shadow: 0 35px 80px rgba(0,0,0,.6);
     }
+
     .card h3 {
-      margin-bottom: 10px;
       color: #93c5fd;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
     }
+
+    .card p {
+      color: #c7d2fe;
+      line-height: 1.6;
+    }
+
+    /* CTA */
     .cta {
       background: linear-gradient(135deg, #38bdf8, #6366f1);
       color: #020617;
       text-align: center;
-      padding: 80px 30px;
-      border-radius: 40px;
-      box-shadow: 0 40px 100px rgba(56,189,248,.5);
+      padding: 90px 30px;
+      border-radius: 45px;
+      box-shadow: 0 45px 110px rgba(56,189,248,.55);
     }
-    .cta h2 { color: #020617; }
+
+    .cta h2 {
+      color: #020617;
+      margin-bottom: 15px;
+    }
+
     .cta p {
       font-size: 1.2rem;
-      max-width: 700px;
-      margin: 20px auto;
+      max-width: 720px;
+      margin: 0 auto 35px;
     }
+
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 45px 20px;
       color: #94a3b8;
       font-size: .9rem;
+      border-top: 1px solid #1e293b;
     }
-    @keyframes fadeDown { from {opacity:0; transform: translateY(-40px);} to {opacity:1;} }
-    @keyframes fadeUp { from {opacity:0; transform: translateY(40px);} to {opacity:1;} }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <h1>Lucas</h1>
-    <p>Desenvolvedor de softwares, criador de sites e marcas digitais. Transformo ideias em experiências modernas, profissionais e que passam confiança.</p>
-    <a class="btn" href="https://wa.me/5545988080346">Falar comigo no WhatsApp</a>
-  </div>
-</header>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Lucas</h1>
+      <p>
+        Desenvolvedor de softwares, criador de sites e marcas digitais.<br>
+        Trabalho com tecnologia, design e marketing para transformar ideias
+        em experiências modernas, profissionais e confiáveis.
+      </p>
+      <a class="btn" href="https://wa.me/5545988080346">Entrar em contato</a>
+    </div>
+  </header>
 
-<section>
-  <h2>O que eu faço</h2>
-  <div class="grid">
-    <div class="card"><h3>Desenvolvimento de Sites</h3><p>Sites modernos, rápidos, responsivos e com foco total em presença digital e conversão.</p></div>
-    <div class="card"><h3>Desenvolvimento de Softwares</h3><p>Soluções sob medida, automações e sistemas pensados para facilitar processos.</p></div>
-    <div class="card"><h3>Criação de Logos</h3><p>Identidade visual forte, moderna e alinhada com o propósito da marca.</p></div>
-    <div class="card"><h3>Marcas de Roupas</h3><p>Criação de conceito, identidade e presença digital para marcas de moda.</p></div>
-    <div class="card"><h3>Marketing Digital</h3><p>Apoio estratégico para posicionamento, autoridade e crescimento online.</p></div>
-    <div class="card"><h3>Design & Criatividade</h3><p>Visual premium, minimalista e profissional, focado em impacto.</p></div>
-  </div>
-</section>
+  <!-- SOBRE -->
+  <section>
+    <h2>Sobre mim</h2>
+    <p class="desc">
+      Tenho 18 anos e atuo como criador digital. Desenvolvo sites, softwares,
+      identidades visuais e auxilio marcas a se posicionarem no digital com
+      autoridade e profissionalismo.
+    </p>
+  </section>
 
-<section class="cta">
-  <h2>Quer tirar sua ideia do papel?</h2>
-  <p>Se você precisa de um site, marca ou solução digital profissional, me chama e vamos criar algo de alto nível juntos.</p>
-  <a class="btn" href="https://wa.me/5545988080346">Entrar em contato agora</a>
-</section>
+  <!-- SERVIÇOS -->
+  <section>
+    <h2>O que eu sei fazer</h2>
+    <p class="desc">Áreas que domino e aplico em projetos reais.</p>
 
-<footer>
-  © 2026 • Lucas • Desenvolvedor & Criador Digital
-</footer>
+    <div class="grid">
+      <div class="card">
+        <h3>💻 Desenvolvimento de Softwares</h3>
+        <p>Sistemas, automações e soluções personalizadas.</p>
+      </div>
+
+      <div class="card">
+        <h3>🌐 Criação de Sites</h3>
+        <p>Sites modernos, responsivos e com visual premium.</p>
+      </div>
+
+      <div class="card">
+        <h3>🎨 Criação de Logos</h3>
+        <p>Identidade visual profissional e memorável.</p>
+      </div>
+
+      <div class="card">
+        <h3>👕 Marcas de Roupas</h3>
+        <p>Conceito, identidade e presença digital para moda.</p>
+      </div>
+
+      <div class="card">
+        <h3>📈 Marketing Digital</h3>
+        <p>Posicionamento, estratégia e crescimento online.</p>
+      </div>
+
+      <div class="card">
+        <h3>✨ Design Criativo</h3>
+        <p>Visual limpo, moderno e focado em impacto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Vamos criar algo profissional?</h2>
+    <p>
+      Se você precisa de um site, marca ou solução digital de alto nível,
+      me chama e vamos tirar sua ideia do papel.
+    </p>
+    <a class="btn" href="https://wa.me/5545988080346">Falar comigo agora</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 • Lucas — Desenvolvedor & Criador Digital
+  </footer>
 
 </body>
 </html>
