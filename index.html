@@ -28,24 +28,18 @@
       z-index: -1;
     }
 
-    /* ANIMAÇÕES DE TEXTO */
+    /* ===== TEXTOS ANIMADOS ===== */
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
-        filter: blur(6px);
+        transform: translateY(25px);
+        filter: blur(8px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
         filter: blur(0);
       }
-    }
-
-    @keyframes floatText {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-      100% { transform: translateY(0); }
     }
 
     header {
@@ -62,22 +56,26 @@
       animation: fadeUp 1.2s ease forwards;
     }
 
-    header h1 {
-      font-size: 44px;
+    /* TÍTULO REAGINDO AO MOUSE */
+    .hero-title {
+      font-size: 46px;
       font-weight: 700;
+      display: inline-block;
+      transition: transform 0.2s ease;
       animation: fadeUp 1.2s ease forwards;
     }
 
-    header h1 span {
+    .hero-title span {
       color: #00e0ff;
     }
 
-    header p {
-      margin-top: 10px;
+    /* TEXTO DIGITANDO */
+    .typewriter {
+      margin-top: 14px;
       font-size: 18px;
       color: #bbb;
+      min-height: 24px;
       animation: fadeUp 1.4s ease forwards;
-      animation-delay: 0.2s;
     }
 
     section {
@@ -88,7 +86,6 @@
       text-align: center;
       font-size: 34px;
       margin-bottom: 60px;
-      animation: floatText 6s ease-in-out infinite;
     }
 
     .cards {
@@ -128,8 +125,24 @@
       transform: translateZ(20px);
     }
 
+    /* CARD CONVITE */
+    .card-idea {
+      background: linear-gradient(135deg, #00e0ff, #0066ff);
+      color: #000;
+    }
+
+    .card-idea h3 {
+      color: #000;
+    }
+
+    .card-idea p {
+      color: #111;
+      font-weight: 500;
+    }
+
+    /* CTA */
     .cta {
-      margin-top: 100px;
+      margin-top: 110px;
       padding: 80px 30px;
       border-radius: 30px;
       background: linear-gradient(135deg, #00e0ff, #0066ff);
@@ -212,8 +225,12 @@
 
 <header>
   <img src="banner.png" alt="Banner Lucas">
-  <h1><span>Lucas</span> — Desenvolvedor & Criador Digital</h1>
-  <p>18 anos • Sites • Softwares • Marcas • Marketing</p>
+
+  <h1 class="hero-title">
+    <span>Lucas</span> — Desenvolvedor & Criador Digital
+  </h1>
+
+  <div class="typewriter" id="typewriter"></div>
 </header>
 
 <section>
@@ -239,11 +256,16 @@
       <h3>📈 Marketing Digital</h3>
       <p>Auxílio em posicionamento e presença online.</p>
     </div>
+
+    <div class="card card-idea">
+      <h3>💡 Tem outra ideia?</h3>
+      <p>Me chama, vamos conversar e ver como transformar isso em algo real.</p>
+    </div>
   </div>
 
   <div class="cta">
-    <h2>Vamos criar algo absurdo?</h2>
-    <p>Entre em contato comigo agora mesmo</p>
+    <h2>Vamos criar algo fora do comum?</h2>
+    <p>Se você tem uma ideia, eu ajudo a dar forma.</p>
 
     <div class="buttons">
       <a href="https://www.instagram.com/lcs_rssr" target="_blank" class="btn btn-premium">
@@ -263,6 +285,7 @@
 </footer>
 
 <script>
+  /* Partículas */
   particlesJS("particles-js", {
     particles: {
       number: { value: 70 },
@@ -272,6 +295,7 @@
     }
   });
 
+  /* Animação cards ao rolar */
   const cards = document.querySelectorAll(".card");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -281,22 +305,60 @@
 
   cards.forEach(card => observer.observe(card));
 
+  /* 3D cards */
   cards.forEach(card => {
     card.addEventListener("mousemove", e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
       card.style.transform =
-        `rotateX(${-(y - cy) / 15}deg) rotateY(${(x - cx) / 15}deg)`;
+        `rotateX(${-(y - r.height/2)/15}deg) rotateY(${(x - r.width/2)/15}deg)`;
     });
-
     card.addEventListener("mouseleave", () => {
       card.style.transform = "rotateX(0) rotateY(0)";
     });
   });
+
+  /* TÍTULO REAGE AO MOUSE */
+  const title = document.querySelector(".hero-title");
+  document.addEventListener("mousemove", e => {
+    const x = (window.innerWidth / 2 - e.clientX) / 40;
+    const y = (window.innerHeight / 2 - e.clientY) / 40;
+    title.style.transform = `translate(${x}px, ${y}px)`;
+  });
+
+  /* TYPEWRITER */
+  const texts = [
+    "18 anos • Sites • Softwares • Marcas",
+    "Transformando ideias em experiências digitais",
+    "Criando soluções modernas e confiáveis"
+  ];
+  let i = 0, j = 0, current = "";
+  const el = document.getElementById("typewriter");
+
+  function type() {
+    if (j < texts[i].length) {
+      current += texts[i][j++];
+      el.textContent = current;
+      setTimeout(type, 50);
+    } else {
+      setTimeout(erase, 2000);
+    }
+  }
+
+  function erase() {
+    if (j > 0) {
+      current = current.slice(0, -1);
+      el.textContent = current;
+      j--;
+      setTimeout(erase, 30);
+    } else {
+      i = (i + 1) % texts.length;
+      setTimeout(type, 500);
+    }
+  }
+
+  type();
 </script>
 
 </body>
