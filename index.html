@@ -86,25 +86,6 @@
       transform: translateY(0);
     }
 
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 22px;
-      background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(0,224,255,0.15),
-        transparent
-      );
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .card:hover::after {
-      opacity: 1;
-    }
-
     .card h3 {
       color: #00e0ff;
       font-size: 20px;
@@ -118,9 +99,10 @@
       transform: translateZ(20px);
     }
 
+    /* CTA */
     .cta {
       margin-top: 100px;
-      padding: 70px 30px;
+      padding: 80px 30px;
       border-radius: 30px;
       background: linear-gradient(135deg, #00e0ff, #0066ff);
       text-align: center;
@@ -128,28 +110,53 @@
     }
 
     .cta h2 {
-      font-size: 32px;
+      font-size: 34px;
       margin-bottom: 15px;
     }
 
     .cta p {
-      margin-bottom: 25px;
+      margin-bottom: 35px;
       font-size: 16px;
     }
 
-    .cta a {
-      background: #000;
-      padding: 15px 40px;
-      border-radius: 50px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
     }
 
-    .cta a:hover {
+    /* Botão Premium */
+    .btn {
+      padding: 16px 42px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+      transition: 0.3s;
+      transform-style: preserve-3d;
+    }
+
+    .btn-premium {
+      background: #000;
+      box-shadow: 0 0 25px rgba(0,224,255,0.5);
+    }
+
+    .btn-premium:hover {
       transform: scale(1.08);
-      background: #111;
+      box-shadow: 0 0 40px rgba(0,224,255,0.9);
+    }
+
+    /* Botão WhatsApp */
+    .btn-whats {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      box-shadow: 0 0 25px rgba(37,211,102,0.6);
+    }
+
+    .btn-whats:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 40px rgba(37,211,102,0.9);
     }
 
     footer {
@@ -181,43 +188,47 @@
 <header>
   <img src="banner.png" alt="Banner Lucas">
   <h1>Lucas — Desenvolvedor & Criador Digital</h1>
-  <p>18 anos • Softwares • Sites • Marcas • Marketing</p>
+  <p>18 anos • Sites • Softwares • Marcas • Marketing</p>
 </header>
 
 <section>
-  <h2 class="title">O que eu sei fazer</h2>
+  <h2 class="title">O que eu faço</h2>
 
   <div class="cards">
     <div class="card">
       <h3>💻 Desenvolvimento de Sites</h3>
-      <p>Sites rápidos, modernos e responsivos com visual premium.</p>
+      <p>Sites modernos, rápidos e com visual premium.</p>
     </div>
 
     <div class="card">
       <h3>🎨 Criação de Logos</h3>
-      <p>Identidade visual profissional para marcas fortes.</p>
+      <p>Identidade visual profissional para marcas.</p>
     </div>
 
     <div class="card">
       <h3>👕 Marcas de Roupas</h3>
-      <p>Construção visual e estratégica de marcas.</p>
+      <p>Criação visual e estratégica de marcas.</p>
     </div>
 
     <div class="card">
       <h3>📈 Marketing Digital</h3>
-      <p>Auxílio estratégico para crescimento online.</p>
-    </div>
-
-    <div class="card">
-      <h3>⚙️ Softwares</h3>
-      <p>Soluções digitais sob medida.</p>
+      <p>Auxílio em posicionamento e presença online.</p>
     </div>
   </div>
 
   <div class="cta">
-    <h2>Quer algo nesse nível?</h2>
-    <p>Entre em contato e vamos criar algo único.</p>
-    <a href="https://www.instagram.com/lcs_rssr" target="_blank">Falar comigo</a>
+    <h2>Vamos criar algo absurdo?</h2>
+    <p>Entre em contato comigo agora mesmo</p>
+
+    <div class="buttons">
+      <a href="https://www.instagram.com/lcs_rssr" target="_blank" class="btn btn-premium">
+        Fale comigo
+      </a>
+
+      <a href="https://wa.me/5545988080346" target="_blank" class="btn btn-whats">
+        WhatsApp
+      </a>
+    </div>
   </div>
 </section>
 
@@ -227,7 +238,6 @@
 </footer>
 
 <script>
-  // Partículas
   particlesJS("particles-js", {
     particles: {
       number: { value: 70 },
@@ -237,7 +247,6 @@
     }
   });
 
-  // Animação ao rolar
   const cards = document.querySelectorAll(".card");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -247,20 +256,16 @@
 
   cards.forEach(card => observer.observe(card));
 
-  // EFEITO 3D REAL (mouse)
   cards.forEach(card => {
     card.addEventListener("mousemove", e => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
 
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = -(y - centerY) / 15;
-      const rotateY = (x - centerX) / 15;
-
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      card.style.transform =
+        `rotateX(${-(y - cy) / 15}deg) rotateY(${(x - cx) / 15}deg)`;
     });
 
     card.addEventListener("mouseleave", () => {
