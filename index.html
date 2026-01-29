@@ -1,267 +1,239 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lucas | Desenvolvedor & Criador Digital</title>
+  <meta charset="UTF-8">
+  <title>Lucas | Designer & Editor de Vídeo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+  <!-- Ícone WhatsApp -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-body{
-  background:radial-gradient(circle at top,#0e1621,#050505);
-  color:#fff;
-  overflow-x:hidden;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-#particles-js{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-}
+    body {
+      background: #050505;
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-/* ===== HEADER ===== */
-header{
-  text-align:center;
-  padding:90px 20px 60px;
-}
+    section {
+      padding: 100px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-header img{
-  width:100%;
-  max-width:900px;
-  border-radius:24px;
-  margin-bottom:40px;
-  box-shadow:0 30px 80px rgba(0,224,255,.25);
-  transition:transform .4s ease, box-shadow .4s ease;
-}
+    .container {
+      max-width: 1100px;
+      width: 100%;
+    }
 
-header img:hover{
-  transform:scale(1.03);
-  box-shadow:0 40px 100px rgba(0,224,255,.35);
-}
+    /* ---------- HERO ---------- */
+    .hero {
+      text-align: center;
+    }
 
-.hero-title{
-  font-size:46px;
-  font-weight:700;
-}
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
 
-.hero-title span{
-  color:#00e0ff;
-}
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
 
-.typewriter{
-  font-size:18px;
-  color:#bbb;
-  min-height:26px;
-}
+    /* ---------- CARDS ---------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 80px;
+    }
 
-/* ===== SECTION ===== */
-section{
-  padding:90px 10%;
-}
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transform-style: preserve-3d;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
 
-.title{
-  text-align:center;
-  font-size:34px;
-  margin-bottom:60px;
-}
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
 
-/* ===== CARDS 3D ===== */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-  perspective:1000px;
-}
+    .card p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
 
-.card{
-  background:linear-gradient(145deg,#121212,#0b0b0b);
-  padding:35px;
-  border-radius:22px;
-  box-shadow:0 25px 60px rgba(0,0,0,.6);
-  transition:transform .12s ease;
-  transform-style:preserve-3d;
-}
+    /* ---------- CTA ---------- */
+    .cta {
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border-radius: 30px;
+      padding: 70px 30px;
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+      box-shadow: 0 0 50px rgba(0,198,255,0.25);
+    }
 
-.card h3{
-  color:#00e0ff;
-  margin-bottom:12px;
-  transform:translateZ(25px);
-}
+    .cta h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
 
-.card p{
-  color:#ccc;
-  transform:translateZ(15px);
-}
+    .cta p {
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
 
-/* ===== CARD WHATS ===== */
-.card-idea{
-  background:linear-gradient(135deg,#25d366,#128c7e);
-  color:#000;
-  cursor:pointer;
-}
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 0 20px rgba(37,211,102,0.6);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-/* ===== CTA ===== */
-.cta{
-  margin-top:120px;
-  padding:80px 30px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#00e0ff,#0066ff);
-  text-align:center;
-  transition:.3s;
-}
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(37,211,102,0.9);
+    }
 
-.cta:hover{
-  transform:scale(1.02);
-  box-shadow:0 30px 80px rgba(0,0,0,.5);
-}
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
 
-/* ===== BOTÃO ===== */
-.btn{
-  margin-top:30px;
-  display:inline-block;
-  padding:16px 44px;
-  border-radius:50px;
-  background:linear-gradient(135deg,#25d366,#128c7e);
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 0 30px rgba(37,211,102,.8);
-  transition:.3s;
-}
+    footer a {
+      color: #25D366;
+      text-decoration: none;
+    }
 
-.btn:hover{
-  transform:scale(1.08);
-}
+    /* ---------- SCROLL ANIMATION ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
 
-/* ===== FOOTER ===== */
-footer{
-  text-align:center;
-  padding:50px 20px;
-  color:#aaa;
-}
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-footer a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-}
-</style>
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div id="particles-js"></div>
-
-<header>
-  <img src="banner.png" alt="Banner Lucas">
-  <h1 class="hero-title"><span>Lucas</span> — Desenvolvedor & Criador Digital</h1>
-  <div class="typewriter" id="typewriter"></div>
-</header>
-
-<section>
-  <h2 class="title">O que eu faço</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>💻 Sites</h3>
-      <p>Sites modernos, rápidos e com visual premium.</p>
+  <!-- HERO -->
+  <section class="hero reveal">
+    <div class="container">
+      <h1>Lucas</h1>
+      <p>Designer • Desenvolvedor • Editor de Vídeo</p>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>🎨 Logos</h3>
-      <p>Identidade visual profissional para marcas.</p>
+  <!-- CARDS -->
+  <section>
+    <div class="container cards reveal">
+      <div class="card">
+        <h3>Web Design</h3>
+        <p>Sites modernos, animados e focados em impacto visual.</p>
+      </div>
+
+      <div class="card">
+        <h3>Edição de Vídeo</h3>
+        <p>Vídeos dinâmicos, cortes rápidos e visual profissional.</p>
+      </div>
+
+      <div class="card">
+        <h3>Identidade Visual</h3>
+        <p>Marcas com presença forte e visual memorável.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>👕 Marcas</h3>
-      <p>Criação estratégica de marcas de roupas.</p>
+  <!-- CTA -->
+  <section class="reveal">
+    <div class="cta">
+      <h2>Vamos criar algo fora do comum?</h2>
+      <p>Se você tem uma ideia, eu ajudo a dar forma.</p>
+      <a class="whatsapp-btn" href="https://wa.me/5545988080346" target="_blank">
+        <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+      </a>
     </div>
+  </section>
 
-    <a class="card card-idea" href="https://wa.me/5545988080346" target="_blank">
-      <h3>💡 Tem outra ideia?</h3>
-      <p>Clique aqui e vamos conversar no WhatsApp.</p>
-    </a>
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 • Instagram: <a href="https://instagram.com/lcs_rssr" target="_blank">@lcs_rssr</a>
+  </footer>
 
-  <div class="cta">
-    <h2>Vamos criar algo fora do comum?</h2>
-    <p>Se você tem uma ideia, eu ajudo a dar forma.</p>
-    <a href="https://wa.me/5545988080346" target="_blank" class="btn">
-      Chamar no WhatsApp
-    </a>
-  </div>
-</section>
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
 
-<footer>
-  © 2026 — Lucas <br>
-  <a href="https://www.instagram.com/lcs_rssr" target="_blank">@lcs_rssr</a>
-</footer>
+    function revealOnScroll() {
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
 
-<script>
-/* PARTICLES */
-particlesJS("particles-js",{
-  particles:{
-    number:{value:70},
-    color:{value:"#00e0ff"},
-    size:{value:3},
-    move:{speed:1}
-  }
-});
+        if (top < windowHeight - 100) {
+          el.classList.add('active');
+        }
+      });
+    }
 
-/* 3D SOMENTE NOS CARDS */
-document.querySelectorAll(".card").forEach(card=>{
-  card.addEventListener("mousemove",e=>{
-    const r=card.getBoundingClientRect();
-    const x=e.clientX-r.left;
-    const y=e.clientY-r.top;
-    card.style.transform=
-      `rotateX(${-(y-r.height/2)/18}deg) rotateY(${(x-r.width/2)/18}deg)`;
-  });
-  card.addEventListener("mouseleave",()=>{
-    card.style.transform="rotateX(0) rotateY(0)";
-  });
-});
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
 
-/* TYPEWRITER */
-const texts=[
-  "18 anos • Sites • Softwares • Marcas",
-  "Transformando ideias em experiências digitais",
-  "Criando soluções modernas e confiáveis"
-];
-let i=0,j=0,current="";
-const el=document.getElementById("typewriter");
+    // Efeito 3D leve nos cards
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-function type(){
-  if(j<texts[i].length){
-    current+=texts[i][j++];
-    el.textContent=current;
-    setTimeout(type,50);
-  }else{
-    setTimeout(erase,2000);
-  }
-}
-function erase(){
-  if(j>0){
-    current=current.slice(0,-1);
-    el.textContent=current;
-    j--;
-    setTimeout(erase,30);
-  }else{
-    i=(i+1)%texts.length;
-    setTimeout(type,500);
-  }
-}
-type();
-</script>
+        const rotateX = ((y / rect.height) - 0.5) * 8;
+        const rotateY = ((x / rect.width) - 0.5) * -8;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0) rotateY(0)';
+      });
+    });
+  </script>
 
 </body>
 </html>
