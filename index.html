@@ -263,12 +263,6 @@ function erase(){
 }
 type();
 
-<!-- PLAYER -->
-<div class="player">
-  <button onclick="toggle()">▶️ / ⏸️</button>
-</div>
-
-<audio id="audio" src="music.mp3" loop></audio>
 /* PLAYER DE MÚSICA */
 const audio = document.getElementById("audio");
 audio.volume = 0.35; // volume elegante
@@ -280,6 +274,8 @@ function toggle(){
     audio.pause();
   }
 }
+
+</script>
 
 </body>
 </html>
